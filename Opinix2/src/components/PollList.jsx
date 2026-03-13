@@ -1,21 +1,24 @@
-import { useNavigate } from "react-router-dom";
-import "../css/pollList.css";
+import { useEffect, useState } from "react";
+import { getPolls } from "../services/api";
 
 function PollList(){
-    //Insert the ID of each 
-    const navigate = useNavigate();
+    const [polls, setPolls] = useState([]);
 
+    useEffect(() => {
+        async function loadPolls() {
+            const data = await getPolls();
+            setPolls(data);
+        }
 
-    return(
-        <>
-        <div className="poll-list">
-            <p>This is a poll list.</p>
-            <button onClick={() => navigate("/Polls")}>Poll 1</button>
-            <button>Poll 2</button>
-            <button>Poll 67</button>
-            <button className="see-more">See More</button>
+        loadPolls();
+    }, []); // Empty dependency array means this runs once on mount
+
+    return (
+        <div>
+            {polls.map(poll => (
+                <button key={poll.id}>{poll.title}</button>
+            ))}
         </div>
-        </>
     )
 }
 
