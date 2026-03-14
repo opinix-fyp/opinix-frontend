@@ -20,11 +20,27 @@
 
 //comment everything out for testing rn
 
+import AuthPage from "./pages/AuthPage";
 import DashboardPage from "./pages/DashboardPage";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
+  if (!user) {
+    return <AuthPage onLogin={handleLogin} />;
+  }
+
   return (
-    <DashboardPage />
+    <DashboardPage user={user} onLogout={handleLogout} />
   );
 }
 

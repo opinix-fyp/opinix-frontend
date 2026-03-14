@@ -1,0 +1,189 @@
+.auth-page {
+    height: 100vh;
+    background: #1d2951;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #c3c3c3;
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #0000005e;
+    border-radius: 6px;
+    background: #3c476b;
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.auth-form input::placeholder {
+    color: #c8cede;
+}
+
+.auth-form input:focus {
+    border-color: #5d6ea5;
+    box-shadow: 0 0 0 3px rgba(93, 110, 165, 0.18);
+}
+
+.auth-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.auth-primary-button {
+    width: 100%;
+    padding: 10px;
+    background: #1d2951;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.18 ease;
+}
+
+.auth-primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
+    background: #24325f;
+}
+
+.auth-primary-button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.auth-text-action {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 14px;
+    transition: color 0.18s ease;
+}
+
+/* im animating it im amimnting it */
+.auth-text-action::before,
+.auth-text-action::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-primary-button::before,
+.auth-primary-button::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    color: white;
+    font-weight: bold;
+}
+
+.auth-text-action::before {
+    content: "[";
+    left: 0;
+    transform: translate(-8px, -50%);
+}
+
+.auth-primary-button::before {
+    content: "[";
+    left: 12px;
+    transform: translate(-8px, -50%);
+}
+
+.auth-text-action::after {
+    content: "]";
+    right: 0;
+    transform: translate(8px, -50%);
+}
+
+.auth-primary-button::after {
+    content: "]";
+    right: 12px;
+    transform: translate(8px, -50%);
+}
+
+.auth-text-action:hover::before {
+    opacity: 1;
+    transform: translate(-2px, -50%);
+}
+
+.auth-primary-button:hover::before {
+    opacity: 1;
+    transform: translate(-2px, -50%);
+}
+
+.auth-text-action:hover::after {
+    opacity: 1;
+    transform: translate(2px, -50%);
+}
+
+.auth-primary-button:hover::after {
+    opacity: 1;
+    transform: translate(2px, -50%);
+}
+
+.forgot {
+    font-size: 13px;
+    font-weight: normal;
+    opacity: 0.85;
+}
+
+.auth-error-message {
+    min-height: 18px;
+    text-align: center;
+    color: #ff8d8d;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/*shake ya booty grimmace shake */
+.shake {
+    animation: authShake 0.32s ease;
+}
+
+@keyframes authShake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
