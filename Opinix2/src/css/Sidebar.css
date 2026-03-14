@@ -1,0 +1,70 @@
+.sidebar {
+  width: 260px;
+  background-color: #0d1726;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: width 0.25s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar-logo {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.sidebar-toggle {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.sidebar-actions {
+  margin-bottom: 1.5rem;
+}
+
+.new-import-button {
+  width: 100%;
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebar-section-title {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+}
+
+.sidebar-empty {
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+.sidebar-poll-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 0.7rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
