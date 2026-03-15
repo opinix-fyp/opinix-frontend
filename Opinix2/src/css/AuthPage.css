@@ -276,6 +276,7 @@
     animation: logoPulse 1.2s ease-in-out infinite;
 }
 
+/* substitute for the glimmer... ts actually works */
 @keyframes logoPulse {
     0% {
         transform: scale(1);
@@ -292,7 +293,8 @@
 }
 
 /*make a glimmer orbit the logo ring... or attempt to...*/
-.logo-glimmer {
+/*TODO we gotta fix ts.. we might need to manually keyframe it all because it is NOT following the ring*/
+/* .logo-glimmer {
     position: absolute;
     inset: 0;
     border-radius: 999px;
@@ -322,7 +324,9 @@
         transform: rotate(360deg) translateX(52px);
         opacity: 0.9;
     }
-}
+} */
+
+/* maybe we dont need the glimmer after all */
 
 @keyframes authShake {
     0% { transform: translateX(0); }
