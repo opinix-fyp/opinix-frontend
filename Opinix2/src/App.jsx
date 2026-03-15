@@ -33,7 +33,7 @@ function App() {
 
     setTimeout(() => {
       setAuthTransitionDone(true);
-    })
+    }, 900);
   };
 
   const handleLogout = () => {
@@ -42,7 +42,7 @@ function App() {
   };
 
   if (!user) {
-    return <AuthPage onLoginsuccess={handleLoginSuccess} />;
+    return <AuthPage onLoginSuccess={handleLoginSuccess} />;
   }
 
   return (

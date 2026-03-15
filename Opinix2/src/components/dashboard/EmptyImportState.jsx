@@ -1,5 +1,8 @@
 import { useRef, useState } from "react";
 
+import logo from "../../assets/Opinix-Logo.png";
+import "../../css/DashboardPage.css";
+
 function EmptyImportState({ onImportFile, error }) {
   const fileInputRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -54,7 +57,10 @@ function EmptyImportState({ onImportFile, error }) {
       onDrop={handleDrop}
     >
 
-      <div className="empty-import-logo">Opinix</div>
+      {/* <div className="empty-import-logo">Opinix</div> */}
+
+      <img src = {logo} alt = "Opinix Logo" className="empty-import-logo-img"/>
+
       <p className="empty-import-text">No poll selected.</p>
 
       <button className="empty-import-button" onClick={handleButtonClick}>

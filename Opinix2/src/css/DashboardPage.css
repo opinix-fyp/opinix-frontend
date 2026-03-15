@@ -32,6 +32,13 @@
   opacity: 0.3;
 }
 
+.empty-import-logo-img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 0px;
+  opacity: 0.6;
+}
+
 .empty-import-text {
   font-size: 1.2rem;
 }

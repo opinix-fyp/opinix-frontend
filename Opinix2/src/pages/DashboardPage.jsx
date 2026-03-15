@@ -33,6 +33,7 @@ function DashboardPage() {
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => { //animation useEffect()
+        //TODO add a case for when the user switches from one poll to another to play another animation
         const nextState = getWorkspaceState();
 
         if (nextState !== workspaceState) {
@@ -106,6 +107,9 @@ function DashboardPage() {
         setError("");
     };
 
+
+    ///* There could be a problem with this... if we are just saving the one poll in displayedpoll, if we switch to another poll, we might be showing the results of the previous poll instead of the current one... idk we shall see. */
+    //TODO probably read the contents of the poll + sentiment from db instead of locally saving it.. that way we can tie each to a user's account, so they dont have to login with none imports
     return (
         <div className="dashboard-page">
             <Sidebar

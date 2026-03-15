@@ -57,7 +57,6 @@ function AuthPage({ onLoginSuccess }) {
     const isLogoZooming = authStage === "successZoom";
 
 //render 
-//TODO import the actual logo
 //TODO add forgot password functionality in the backend
     return (
         <div className={`auth-page ${authStage === "successZoom" ? "auth-page-exit" : ""}`}>
