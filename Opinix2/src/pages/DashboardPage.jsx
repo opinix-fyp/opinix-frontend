@@ -7,7 +7,7 @@ import LoadingState from "../components/dashboard/LoadingState";
 import { importPoll, analyzePoll } from "../services/api";
 
 import "../css/DashboardPage.css";
-
+//import logo from "../assets/Opinix-Logo.png"; //TODO implement the logo in the dashboard element
 
 function DashboardPage() {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);

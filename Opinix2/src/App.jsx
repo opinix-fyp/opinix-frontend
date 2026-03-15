@@ -26,21 +26,29 @@ import { useState } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [authTransitionDone, setAuthTransitionDone] = useState(null);
 
-  const handleLogin = (userData) => {
+  const handleLoginSuccess = (userData) => {
     setUser(userData);
+
+    setTimeout(() => {
+      setAuthTransitionDone(true);
+    })
   };
 
   const handleLogout = () => {
     setUser(null);
+    setAuthTransitionDone(false);
   };
 
   if (!user) {
-    return <AuthPage onLogin={handleLogin} />;
+    return <AuthPage onLoginsuccess={handleLoginSuccess} />;
   }
 
   return (
-    <DashboardPage user={user} onLogout={handleLogout} />
+    <div className = {`app-shell ${authTransitionDone ? "dashboard-visible" : ""}`}>
+      <DashboardPage user={user} onLogout={handleLogout} />
+    </div>
   );
 }
 
