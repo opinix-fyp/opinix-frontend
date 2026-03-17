@@ -1,3 +1,14 @@
+function normalizeSentiment(sentiment) {
+  if (!sentiment) return "UNSURE";
+
+  const value = sentiment.toUpperCase();
+
+  if (value === "GOOD" || value === "POSITIVE") return "GOOD";
+  if (value === "OKAY" || value === "NEUTRAL") return "OKAY";
+  if (value === "BAD" || value === "NEGATIVE") return "BAD";
+  return "UNSURE";
+}
+
 function ResponseList({ analysisResult, selectedPoll }) {
   if (!analysisResult || !selectedPoll) {
     return (
@@ -28,10 +39,13 @@ function ResponseList({ analysisResult, selectedPoll }) {
       }
     }
 
+    const normalizedSentiment = normalizeSentiment(item.sentiment);
+
     return {
       ...item,
       rowIndex,
       questionLabel,
+      normalizedSentiment,
     };
   });
 
@@ -56,8 +70,8 @@ function ResponseList({ analysisResult, selectedPoll }) {
             "{item.text}"
           </div>
 
-          <div className={`response-sentiment ${item.sentiment?.toLowerCase()}`}>
-            {item.sentiment} • score {Number(item.score).toFixed(2)}
+          <div className={`response-sentiment ${item.normalizedSentiment.toLowerCase()}`}>
+            {item.normalizedSentiment} • score {Number(item.score).toFixed(2)}
           </div>
         </div>
       ))}

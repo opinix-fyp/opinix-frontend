@@ -1,15 +1,15 @@
-function SentimentChart({ analysisResult }) {
+function AISummary({ analysisResult }) {
   return (
     <div>
-      <h3>Sentiment Distribution</h3>
+      <h3>AI Summary</h3>
 
-      {!analysisResult ? (
-        <p>Waiting for harish ramachandra...</p>
+      {!analysisResult?.summary ? (
+        <p>Waiting for summary...</p>
       ) : (
-        <p>2000 years...</p>
+        <p className="ai-summary-text">{analysisResult.summary}</p>
       )}
     </div>
   );
 }
 
-export default SentimentChart;
+export default AISummary;

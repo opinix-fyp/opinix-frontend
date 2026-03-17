@@ -1,15 +1,23 @@
 .sidebar {
   width: 260px;
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 100vh;
   background-color: #0d1726;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  transition: width 0.25s ease;
+  transition: width 0.25s ease, padding 0.25s ease;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .sidebar.collapsed {
-  width: 80px;
+  width: 72px;
+  padding: 1rem 0.5rem;
 }
 
 .sidebar-top {
@@ -17,11 +25,24 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  min-width: 0;
 }
 
 .sidebar-logo {
   font-size: 1.4rem;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-section-title,
+.sidebar.collapsed .sidebar-empty {
+  display: none;
 }
 
 .sidebar-toggle {
@@ -47,6 +68,10 @@
   cursor: pointer;
 }
 
+.sidebar.collapsed .new-import-button {
+  display: none;
+}
+
 .sidebar-section-title {
   font-size: 0.9rem;
   opacity: 0.7;
@@ -67,4 +92,11 @@
   padding: 0.7rem 0.5rem;
   border-radius: 8px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-poll-item {
+  display: none;
 }
