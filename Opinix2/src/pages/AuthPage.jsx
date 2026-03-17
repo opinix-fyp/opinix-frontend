@@ -36,7 +36,7 @@ function AuthPage({ onLoginSuccess }) {
             if (mode === "login") {
                 user = await loginUser(email, password);
             } else {
-                user = await registerUser(email, password, fullName, "USER");
+                user = await registerUser(email, password, fullName, "POLLSTER");
             }
 
             setAuthStage("successZoom");

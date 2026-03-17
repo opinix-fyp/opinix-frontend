@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "backend": "cd ../../opinix-backend && mvnw spring-boot:run",
+    "backend": "cd ../../opinix-backend && mvnw spring-boot:run -Dspring-boot.run.profiles=ml",
     "frontend": "vite",
     "dev:full": "concurrently \"npm run backend\" \"npm run frontend\""
   },
