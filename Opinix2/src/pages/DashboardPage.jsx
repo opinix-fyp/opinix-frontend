@@ -56,6 +56,14 @@ function DashboardPage() {
         }
     }, [isImporting, selectedPoll, analysisResults]);
 
+        useEffect(() => {
+        if (workspaceState === "poll" && selectedPoll) {
+            setDisplayedPoll(selectedPoll);
+            setDisplayedAnalysis(analysisResults[selectedPoll.id] || null);
+        }
+    }, [selectedPoll, analysisResults, workspaceState]);
+    
+    
     useEffect(() => {
         const preventDefault = (event) => {
             event.preventDefault();

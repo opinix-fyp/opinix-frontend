@@ -85,11 +85,12 @@ export async function updateUserActiveStatus(id, active) {
 }
 
 // polls and such
-export async function importPoll(file, title = "Imported Poll", source = "GOOGLE_FORMS") {
+export async function importPoll(file, title = "Imported Poll", source = "GOOGLE_FORMS", ownerEmail) {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("title", title);
   formData.append("source", source);
+  formData.append("ownerEmail", ownerEmail);
 
   const response = await fetch(`${API_BASE}/polls/import`, {
     method: "POST",
@@ -115,6 +116,11 @@ export async function getPolls() {
   }
 
   return response.json();
+}
+
+export async function getMyPolls(email) {
+  const response = await fetch(`${API_BASE}/polls/my?email=${encodeURIComponent(email)}`);
+  return handleResponse(response, "Failed to fetch user polls");
 }
 
 // health checking chuds
